@@ -89,7 +89,7 @@ canonifyURLs = true
 [params.intro]
   header    = "Gra55"
 
-  paragraph = "愿背井离乡、追寻梦想的你归来认识少年 <i class='fa fa-hand-peace-o'></i>"
+  paragraph = "愿背井离乡、追寻梦想的你归来仍是少年 <i class='fa fa-hand-peace-o'></i>"
 
   about     = "Ordinary but not mediocre, fighting <i class='fa fa-hand-peace-o'></i>"
 
@@ -119,7 +119,7 @@ canonifyURLs = true
 [[menu.main]]
   name = "About"
   url = "/about/"
-  identifier = "fa fa-id-card-o"
+  identifier = "fa fa-heartbeat"
   weight = 2
 
 [[menu.main]]
