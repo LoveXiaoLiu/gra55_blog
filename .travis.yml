@@ -1,0 +1,29 @@
+# https://docs.travis-ci.com/user/deployment/pages/
+# https://docs.travis-ci.com/user/languages/python/
+
+install:
+    - uname -a
+    - wget https://github.com/gohugoio/hugo/releases/download/v0.56.0/hugo_0.56.0_Linux-64bit.deb
+    - sudo dpkg -i hugo*.deb
+    - hugo version
+    - pwd
+
+script:
+    - hugo
+    - echo 'Hugo build done!'
+after_script:
+  - git clone "https://lovexiaoliu:${GithubToken}@${Github_REF}" github-pages
+  - rm github-pages/public -rf
+  - cp ./public/* github-pages -rf
+  - cd github-pages
+  - git add .
+  - git commit -m "Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER"
+  - git tag v0.0.$TRAVIS_BUILD_NUMBER -a -m "Auto Taged By TravisCI With Build $TRAVIS_BUILD_NUMBER"
+  # Github Pages
+  - git push --force --quiet "https://lovexiaoliu:${GithubToken}@${Github_REF}" master:master 
+  - git push --quiet "https://lovexiaoliu:${GithubToken}@${Github_REF}" master:master --tags
+
+env:
+ global:
+   # Github Pages
+   - Github_REF: github.com/lovexiaoliu/lovexiaoliu.github.io.git
