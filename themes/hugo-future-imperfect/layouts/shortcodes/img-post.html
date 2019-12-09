@@ -53,15 +53,15 @@
     {{ $path := $.Scratch.Get "path" }}
 
     {{ if eq $type "left" }}
-        <span class="image left">
+        <span class="image left" style="max-width: 80%; max-height: 80%">
             <img src="{{ $path }}/{{ $file }}" alt="{{ $alt }}">
         </span>
     {{ else if eq $type "right" }}
-        <span class="image right">
+        <span class="image right" style="max-width: 80%; max-height: 80%">
             <img src="{{ $path }}/{{ $file }}" alt="{{ $alt }}">
         </span>
     {{ else }}
-        <p><span class="image center">
+        <p><span class="image center" style="max-width: 80%; max-height: 80%">
             <img src="{{ $path }}/{{ $file }}" alt="{{ $alt }}">
         </span></p>
     {{ end }}

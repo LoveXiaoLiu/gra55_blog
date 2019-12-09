@@ -77,7 +77,7 @@ enableEmoji = true
   # Sets Statiman to be active
   staticman = true
   # enable = true
-  apiEndpoint = "https://api.staticman.net/v2/entry"
+  # apiEndpoint = "https://dev.staticman.net/v3/entry/github/LoveXiaoLiu/blog-comment/master"
   # maxDepth = 2
   # Sets the location for Staticman to connect to
   username  = "LoveXiaoLiu"
