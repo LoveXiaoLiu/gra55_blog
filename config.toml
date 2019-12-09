@@ -76,14 +76,17 @@ enableEmoji = true
 [params.staticman]
   # Sets Statiman to be active
   staticman = true
+  # enable = true
+  apiEndpoint = "https://api.staticman.net/v2/entry"
+  # maxDepth = 2
   # Sets the location for Staticman to connect to
   username  = "LoveXiaoLiu"
-  repo      = "https://github.com/LoveXiaoLiu/blog-comment"
+  repo      = "blog-comment"
   branch    = "master"
 
-  [params.staticman.recaptcha]
-    sitekey = "SITE_KEY"
-    secret  = "ENCRYPTED_SECRET"
+  # [params.staticman.recaptcha]
+  #   sitekey = "SITE_KEY"
+  #   secret  = "ENCRYPTED_SECRET"
 
   # These are optional params related to the sidebar. They are recommended, but not
   # required for proper functionality. HTML is supported within the params.

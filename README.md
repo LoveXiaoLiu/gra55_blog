@@ -10,3 +10,4 @@ Powered by [hugo](https://gohugo.io/commands/hugo/) and theme is [hugo-future-im
 
 ## PS
 + [icon](http://www.fontawesome.com.cn/)
++ add `staticmanapp` to your Collaborators and access url `https://api.staticman.net/v2/connect/LoveXiaoLiu/blog-comment`
