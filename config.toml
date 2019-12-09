@@ -4,7 +4,7 @@ title = "Gra55's Blog"
 theme = "hugo-future-imperfect"
 preserveTaxonomyNames = true
 paginate = 3
-disqusShortname = "shortname"
+# disqusShortname = "shortname"
 googleAnalytics = ""
 pluralizeListTitles = false
 # Set the followings to true as part of your site SEO
@@ -75,11 +75,11 @@ enableEmoji = true
 # prefer to use. See Staticman.yml for additional settings.
 [params.staticman]
   # Sets Statiman to be active
-  staticman = false
+  staticman = true
   # Sets the location for Staticman to connect to
-  username  = ""
-  repo      = ""
-  branch    = ""
+  username  = "LoveXiaoLiu"
+  repo      = "https://github.com/LoveXiaoLiu/blog-comment"
+  branch    = "master"
 
   [params.staticman.recaptcha]
     sitekey = "SITE_KEY"
@@ -152,7 +152,7 @@ enableEmoji = true
 # and socialAppearAtBottom.
 [social]
   # Coding Communities
-  github           = "jpescador/hugo-future-imperfect"
+  github           = "LoveXiaoLiu"
   gitlab           = ""
   stackoverflow    = "" # User Number
   bitbucket        = ""
