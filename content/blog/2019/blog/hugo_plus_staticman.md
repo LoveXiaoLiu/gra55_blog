@@ -10,7 +10,6 @@ featuredalt = "Mt. Fuji"
 featuredpath = "date"
 linktitle = ""
 type = "post"
-
 +++
 
 ## 0x00 起因
