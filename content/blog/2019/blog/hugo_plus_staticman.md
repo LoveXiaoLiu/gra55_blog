@@ -46,6 +46,7 @@ type = "post"
 奈何已经有轮子了，何必自己造一个呢？
 
 是的，已经有人写好了 [GitHub App for staticman](https://github.com/eduardoboucas/staticman/issues/243#issuecomment-453754860)，所以可以直接拿来用：
+
 + 去这里  https://github.com/apps/staticman-net 给自己的 GitHub 账号安装此 APP
 + 将评论的 post 请求地址换成 https://dev.staticman.net/v3/entry/github/[USERNAME]/[REPOSITORY]/[BRANCH] 即可
 + 需要增加评论审核功能的话，在 staticman.yml 文件将 moderation 设置为 true 
