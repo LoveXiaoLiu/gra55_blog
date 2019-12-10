@@ -81,7 +81,7 @@ enableEmoji = true
   # maxDepth = 2
   # Sets the location for Staticman to connect to
   username  = "LoveXiaoLiu"
-  repo      = "blog-comment"
+  repo      = "gra55_blog"
   branch    = "master"
 
   # [params.staticman.recaptcha]
