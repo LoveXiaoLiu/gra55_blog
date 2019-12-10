@@ -6,7 +6,7 @@ Powered by [hugo](https://gohugo.io/commands/hugo/) and theme is [hugo-future-im
 + Install binary [hugo](https://github.com/gohugoio/hugo/releases)
 + Write new article，and article's picture from path (`.\static\img\`) that place by year and month
 + Go to the root path, and run `hugo.exe server` to preview
-+ And then git push to github (will trigger [Travis-CI](https://www.travis-ci.org/), and then public to Github-Page)
++ And then git push to github (will trigger [Travis-CI](https://www.travis-ci.org/), and then public to Github-Page. if it's not auto trigger, please check GitHub Token in Travis)
 
 ## PS
 + [icon](http://www.fontawesome.com.cn/)
