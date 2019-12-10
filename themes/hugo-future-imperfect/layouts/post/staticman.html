@@ -26,7 +26,7 @@
     {{ $.Scratch.Add "hasComments" 1 }}
     {{ range $index, $comments := (index $.Site.Data.comments $entryId ) }}
     <article id="{{ .uniqueID }}" class="post-comment">
-      <img class="post-comment-avatar" src="https://www.gravatar.com/avatar/{{ .email }}?s=100">
+      <img class="post-comment-avatar" src="https://avatar.zrahh.com/avatar/{{ .email }}?s=100">
       <h3 class="post-comment-author">
         <a rel="external nofollow" href="{{ .website }}">{{ .name }}</a>
       </h3>
