@@ -7,9 +7,9 @@ description = "台湾大学林轩田老师在 coursera 上开设的机器学习�
 featured = ""
 featuredpath = ""
 featuredalt = ""
-categories = [""]
+categories = []
 linktitle = ""
-format = "Android"
+format = "machine learn"
 link = "#"
 +++
 
