@@ -133,8 +133,8 @@ enableEmoji = true
   weight = 3
 
 [[menu.main]]
-  name = "Itemized"
-  url = "/itemized/"
+  name = "Awesome"
+  url = "/awesome/"
   identifier = "fa fa-list"
   weight = 4
 
