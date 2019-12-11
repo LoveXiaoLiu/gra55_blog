@@ -129,19 +129,19 @@ enableEmoji = true
 [[menu.main]]
   name = "Blog"
   url = "/blog/"
-  identifier = "fa fa-newspaper-o"
+  identifier = "fa fa-coffee"
   weight = 3
 
 [[menu.main]]
   name = "Awesome"
   url = "/awesome/"
-  identifier = "fa fa-list"
+  identifier = "fa fa-snowflake-o"
   weight = 4
 
 [[menu.main]]
   name = "Categories"
   url = "/categories/"
-  identifier = "fa fa-sitemap"
+  identifier = "fa fa-free-code-camp"
   weight = 5
 
 [[menu.main]]

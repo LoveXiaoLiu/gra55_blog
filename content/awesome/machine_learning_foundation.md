@@ -1,5 +1,5 @@
 +++
-type = "awesome"
+type = "itemized"
 author = "gra55"
 date = "2019-12-11"
 title = "视频：林轩田机器学习基石"
