@@ -6,6 +6,7 @@ categories = ["Blog"]
 tags = ["blog", "2019"]
 date = "2019-12-09"
 featured = "pic01.jpg"
+figurebedurl = "https://wx3.sinaimg.cn/mw690/8a6fa043ly1g9sq27j8jlj21900u04mn.jpg"
 featuredalt = "Mt. Fuji"
 featuredpath = "date"
 linktitle = ""
@@ -23,10 +24,12 @@ type = "post"
 准备按照 [staticman](https://staticman.net/) 的 Getting started 一步一步执行。
 
 可谓是出师不利，第一步就过不去：无法把 staticmanapp 账户添加到 Collaborators 中。
-{{< img-post path="date" file="collaborator_add_error.jpg" alt="collaborator_add_error" type="center" >}}
+
+{{< img-post-fb path="date" file="collaborator_add_error.jpg" alt="collaborator_add_error" type="center" url="https://wx4.sinaimg.cn/mw690/8a6fa043ly1g9sq0g4hhqj20lx08j3z0.jpg">}}
 
 随后访问 https://api.staticman.net/v2/connect/LoveXiaoLiu/blog-comment 也是各种报错。
-{{< img-post path="date" file="access_staticman_error.jpg" alt="access_staticman_error" type="center" >}}
+
+{{< img-post-fb path="date" file="access_staticman_error.jpg" alt="access_staticman_error" type="center" url="https://wx2.sinaimg.cn/mw690/8a6fa043ly1g9sq0ln9v1j20fr08maa6.jpg">}}
 
 于是去 [staticman](https://staticman.net/) 的 issue 区找找，果然很多人遇到了这个问题。
 

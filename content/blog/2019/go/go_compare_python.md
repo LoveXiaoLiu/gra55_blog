@@ -6,6 +6,7 @@ categories = ["Go"]
 tags = ["python", "go", "2019"]
 date = "2019-12-10"
 featured = "kobe_first_champ.jpg"
+figurebedurl = "https://wx3.sinaimg.cn/large/8a6fa043ly1g9snihiopsj218i0u0qa8.jpg"
 featuredalt = "Jerry Buss is interviewed after his team won the 1999-2000 NBA Finals"
 featuredpath = "date"
 linktitle = ""

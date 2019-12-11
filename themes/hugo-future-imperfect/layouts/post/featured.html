@@ -9,7 +9,11 @@
         {{ $img := $.Scratch.Get "img" }}
 
         <a href="{{ .RelPermalink }}" class="image featured">
-            <img src="{{ $path | relURL }}/{{ .Params.featured }}" alt="{{ $alt }}">
+            {{ if .Params.figurebedurl }}
+                <img src="{{ .Params.figurebedurl }}" alt="{{ $alt }}">
+            {{ else }}
+                <img src="{{ $path | relURL }}/{{ .Params.featured }}" alt="{{ $alt }}">
+            {{ end }}
         </a>
     {{ end }}
 {{ end }}

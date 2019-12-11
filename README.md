@@ -12,3 +12,4 @@ Powered by [hugo](https://gohugo.io/commands/hugo/) and theme is [hugo-future-im
 + [icon](http://www.fontawesome.com.cn/)
 + ~~add `staticmanapp` to your Collaborators and access url `https://api.staticman.net/v2/connect/LoveXiaoLiu/blog-comment`~~
 + [add comment](https://www.yangliu.date//blog/2019/blog/hugo_plus_staticman/)
++ add [sina figure bed](https://photo.weibo.com/2322571331). You can use `img-post-fb` shortcodes, and use `figurebedurl` field in `.md` post file.

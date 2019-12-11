@@ -1,0 +1,91 @@
+<!--
+    img post for Figure bed!
+    params 2-4
+    Can be positional or named
+
+    position 0, name: path
+        Can pass in the following values:
+            title: will use /img/LinkTitle as the path
+            date: will use /img/Year/Month as the path
+            /path/to/img: can pass in explicit path to the image
+
+    position 1, name: file
+        Name of the file including the file extension
+
+    position 2, name: alt
+        Name of the alternate text for the image
+
+    position 3, name: type
+        Can pass in the following values:
+            center: places the image centered
+            left: places the image to the left
+            right: places the image to the right
+
+    position 4, name: url
+        path to Figure bed url!
+-->
+{{ $numOfParams := len .Params }}
+{{ if and (ge $numOfParams 2) (le $numOfParams 5) }}
+    <!-- Check if the Parameter is positional or named
+         which can handle both. -->
+    {{ if .IsNamedParams }}
+        {{ $.Scratch.Set "path" (.Get "path") }}
+        {{ $.Scratch.Set "file" (.Get "file") }}
+        {{ $.Scratch.Set "alt"  (.Get "alt") }}
+        {{ $.Scratch.Set "type" (.Get "type") }}
+        {{ $.Scratch.Set "url" (.Get "url") }}
+    {{ else }}
+        {{ $.Scratch.Set "path" (.Get 0) }}
+        {{ $.Scratch.Set "file" (.Get 1) }}
+        {{ if ge $numOfParams 3 }}
+            {{ $.Scratch.Set "alt" (.Get 2) }}
+        {{ else }}
+            {{ $.Scratch.Set "alt" "" }}
+        {{ end }}
+        {{ if ge $numOfParams 4 }}
+            {{ $.Scratch.Set "type"  (.Get 3) }}
+        {{ else }}
+            {{ $.Scratch.Set "type" "center" }}
+        {{ end }}
+        {{ if ge $numOfParams 5 }}
+            {{ $.Scratch.Set "url"  (.Get 4) }}
+        {{ else }}
+            {{ $.Scratch.Set "url" "" }}
+        {{ end }}
+    {{ end }}
+
+    {{ $file := $.Scratch.Get "file" }}
+    {{ $type := $.Scratch.Get "type" }}
+    {{ $alt  := $.Scratch.Get "alt" }}
+    {{ $url  := $.Scratch.Get "url" }}
+
+    {{ $.Scratch.Set "structType" "shortcode" }}
+    {{ partial "img-path" . }}
+    {{ $path := $.Scratch.Get "path" }}
+
+    {{ if eq $type "left" }}
+        <span class="image left" style="max-width: 80%; max-height: 80%">
+            {{ if eq $url "" }}
+                <img src="{{ $path }}/{{ $file }}" alt="{{ $alt }}">
+            {{ else }}
+                <img src="{{ $url }}" alt="{{ $alt }}">
+            {{ end }}
+        </span>
+    {{ else if eq $type "right" }}
+        <span class="image right" style="max-width: 80%; max-height: 80%">
+            {{ if eq $url "" }}
+                <img src="{{ $path }}/{{ $file }}" alt="{{ $alt }}">
+            {{ else }}
+                <img src="{{ $url }}" alt="{{ $alt }}">
+            {{ end }}
+        </span>
+    {{ else }}
+        <p><span class="image center" style="max-width: 80%; max-height: 80%">
+            {{ if eq $url "" }}
+                <img src="{{ $path }}/{{ $file }}" alt="{{ $alt }}">
+            {{ else }}
+                <img src="{{ $url }}" alt="{{ $alt }}">
+            {{ end }}
+        </span></p>
+    {{ end }}
+{{ end }}
