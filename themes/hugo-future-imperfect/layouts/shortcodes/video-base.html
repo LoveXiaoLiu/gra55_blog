@@ -1,0 +1,27 @@
+<!--
+    params 2-4
+    Can be positional or named
+
+    note:
+        this shortcodes is for html5 video tag
+
+    position 0, name: url
+
+-->
+{{ $numOfParams := len .Params }}
+{{ if and (ge $numOfParams 1) (le $numOfParams 1) }}
+    <!-- Check if the Parameter is positional or named
+         which can handle both. -->
+    {{ if .IsNamedParams }}
+        {{ $.Scratch.Set "url" (.Get "url") }}
+    {{ else }}
+        {{ $.Scratch.Set "url" (.Get 0) }}
+    {{ end }}
+
+    {{ $url := $.Scratch.Get "url" }}
+
+    {{ $.Scratch.Set "structType" "shortcode" }}
+
+    <video width="100%" height="100%" controls src="{{ $url }}"></video>
+    
+{{ end }}
