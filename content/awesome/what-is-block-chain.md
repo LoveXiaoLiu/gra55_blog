@@ -15,4 +15,4 @@ link = "#"
 
 ## 0x00 《什么是区块链？》
 
-{{<video-base url="//f.video.weibocdn.com/0031rLnmlx07yehFoLBS01041201ldHu0E010.mp4?label=mp4_hd&template=640x360.25.0&trans_finger=62b30a3f061b162e421008955c73f536&Expires=1576128063&ssig=TQg2hCpF%2Fa&KID=unistore,video" >}}
+{{<video-bili aid="18192895" cid="29702271" >}}
