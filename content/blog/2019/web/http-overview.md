@@ -33,6 +33,7 @@ Key point：
 + HTTP 交互的是单独的 message，而不是数据流（stream of data）
 + HTTP 是应用层协议，通过 TCP 或者 TLS 加密的 TCP 连接发送数据
 + HTTP 协议的高度可扩展性，使它能传输任何类型的文件（video、imag 等）
++ Client 与 Server 中间可以有多层代理
 
 #### 历史
 
