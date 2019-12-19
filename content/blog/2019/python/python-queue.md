@@ -1,6 +1,6 @@
 +++
-title = "Python 内置库：Queue"
-description = "Python 内置库 Queue 的用法总结"
+title = "Python 标准库：Queue"
+description = "Python 标准库 Queue 的用法总结"
 author = "gra55"
 categories = ["Python"]
 tags = ["python", "2019"]
@@ -23,7 +23,7 @@ Queue 模块提供了三种类型的队列，三种类型的主要差异是获�
 
 ## 0x01 队列
 
-#### class：Queue(maxsize=0)
+### class：Queue(maxsize=0)
 
 FIFO（先进先出）队列。
 
@@ -31,13 +31,13 @@ maxsize 用来设置队列的最大容量，一旦到达最大值，插入操作
 
 如果 maxsize 小于等于 0，队列的容量是无限大。
 
-#### class：LifoQueue(maxsize=0)
+### class：LifoQueue(maxsize=0)
 
 LIFO（先进后出）队列，类似于栈。
 
 其他规则同 Queue。
 
-#### class：PriorityQueue(maxsize=0)
+### class：PriorityQueue(maxsize=0)
 
 优先队列，内部使用 [heapq](https://docs.python.org/2/library/heapq.html#module-heapq) 实现。
 
@@ -45,11 +45,11 @@ LIFO（先进后出）队列，类似于栈。
 
 优先返回优先级低的数据，典型的数据模式是一个元组：(priority_number, data)
 
-#### exception：Empty
+### exception：Empty
 
 在一个空队列调用非阻塞 get() 或者 get_nowait() 时会抛出此异常。
 
-#### exception：Full
+### exception：Full
 
 在一个容量达到最大值的队列调用非阻塞 put() 或者 put_nowait() 时会抛出此异常。
 
@@ -57,28 +57,34 @@ LIFO（先进后出）队列，类似于栈。
 
 > LifoQueue，PriorityQueue 都是继承自 Queue
 
-#### Queue.qsize()
+### Queue.qsize()
 
-返回队列的近似大小，不能保证读写
+返回队列的近似大小，不能保证读写不会被阻塞。
 
-#### Queue.empty()
+### Queue.empty()
 
+判断队列是不是空，返回 True or False。不能保证读写不会被阻塞。
 
+### Queue.full()
 
-#### Queue.full()
+判断队列是不是满的，返回 True or False。不能保证读写不会被阻塞。
 
-#### Queue.put(item[, block[, timeout]])
+### Queue.put(item[, block[, timeout]])
 
-#### Queue.put_nowait(item)
+将一个元素插入到队列中。如果 block=True 并且 timeout=None，如果队列满的话会阻塞，直到有空位。
 
-#### Queue.get([block[, timeout]])
+### Queue.put_nowait(item)
 
-#### Queue.get_nowait()
+### Queue.get([block[, timeout]])
 
-#### Queue.task_done()
+### Queue.get_nowait()
 
-#### Queue.join()
+### Queue.task_done()
+
+### Queue.join()
 
 ---
 参考：
-[Queue — A synchronized queue class](https://docs.python.org/2/library/queue.html)
+
+:pushpin: [Queue — A synchronized queue class](https://docs.python.org/2/library/queue.html)
+
