@@ -66,9 +66,19 @@ But now，时代不一样了，95% 的常用库都已经支持 Python3 了，所
 + dictionary’s .values() method
 + dictionary’s .items() method
 
-## 0x02 升级工具
+## 0x02 如何写兼容 Python2 & 3 的代码
 
-## 0x03 如何写兼容 Python2 & 3 的代码
+> 首先需要明确一个问题：写 Python2 代码来兼容 Python3，还是写 Python3 代码来兼容 Python2？
+> + 历史经验来看，最佳实践是写**Python3 代码来兼容 Python2**
+> + 打一个不太恰当的比方：2 孔的插座好比 Python2 解释器，3 孔的好比 Python3 解释器，本来是 2 孔的充电器（Python2 代码）插 2 孔插座（Python2 解释器），3 孔（Python3 代码）的插 3 孔插座（Python3 解释器）。现在假如 2 孔的插座（Python2 解释器）快被淘汰了，你是愿意给 3 孔的充电器（Python3 代码）安装一个 2 孔的转接头（six library），让他可以同时使用 2 孔（Python2 解释器）和 3 孔插座（Python3 代码）呢？还是给 2 孔充电器（Python2 代码）安装一个 3 孔的转接头（six library）？
+> + 当然是给 3 孔的充电器（Python3 代码）安装 2 孔的转接头（six library）。因为 2 孔的插座（Python2 解释器）被淘汰以后，我们完全可以不使用转接头了。否则必须一直依赖转接头（six library）。
+
+[python-future](https://github.com/PythonCharmers/python-future) 库是用来弥补 Python2 和 Python3 兼容性的库，也就是一个转接头。
+[six](https://github.com/benjaminp/six) 也是一个解决 Python2 和 Python3 兼容性的库
+
+## 0x03 升级工具
+
+
 
 ## 0x04 安装 Python 2 & 3 的环境
 
@@ -88,3 +98,5 @@ But now，时代不一样了，95% 的常用库都已经支持 Python3 了，所
 :pushpin: [Python 2 vs Python 3: Key Differences](https://www.guru99.com/python-2-vs-python-3.html)
 
 :pushpin: [Python2 vs Python3 | Syntax and performance Comparison](https://www.geeksforgeeks.org/python2-vs-python3-syntax-and-performance-comparison/)
+
+:pushpin: [Best Practices for Compatible Python 2 and 3 Code](https://pybit.es/python-porting.html)
