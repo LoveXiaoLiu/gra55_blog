@@ -24,7 +24,7 @@ type = "_post"
 > 
 > 如何部署 Python 2 和 Python3 的环境，并且还有虚拟环境
 
-## 0x00 为什么要升级到 Python3
+# 0x00 为什么要升级到 Python3
 
 Python2
 + Python2 算是一种比较古老的语言
@@ -44,7 +44,7 @@ But now，时代不一样了，95% 的常用库都已经支持 Python3 了，所
 
 另外，根据 [2017](https://www.jetbrains.com/research/python-developers-survey-2017/) 和 [2018](https://www.jetbrains.com/research/python-developers-survey-2018/) 年的 Python 开发者调查报告显示，2018 年使用 Python3 的人数高达 84%，2019 年的报告还没出来，占比肯定 会更高。
 
-## 0x01 主要差异对比
+# 0x01 主要差异对比
 
 | |Python2 |   Python3|
 | --- | --- | --- |
@@ -66,21 +66,29 @@ But now，时代不一样了，95% 的常用库都已经支持 Python3 了，所
 + dictionary’s .values() method
 + dictionary’s .items() method
 
-## 0x02 如何写兼容 Python2 & 3 的代码
+# 0x02 如何写兼容 Python2 & 3 的代码
 
 > 首先需要明确一个问题：写 Python2 代码来兼容 Python3，还是写 Python3 代码来兼容 Python2？
 > + 历史经验来看，最佳实践是写**Python3 代码来兼容 Python2**
+>
 > + 打一个不太恰当的比方：2 孔的插座好比 Python2 解释器，3 孔的好比 Python3 解释器，本来是 2 孔的充电器（Python2 代码）插 2 孔插座（Python2 解释器），3 孔（Python3 代码）的插 3 孔插座（Python3 解释器）。现在假如 2 孔的插座（Python2 解释器）快被淘汰了，你是愿意给 3 孔的充电器（Python3 代码）安装一个 2 孔的转接头（six library），让他可以同时使用 2 孔（Python2 解释器）和 3 孔插座（Python3 代码）呢？还是给 2 孔充电器（Python2 代码）安装一个 3 孔的转接头（six library）？
+>
 > + 当然是给 3 孔的充电器（Python3 代码）安装 2 孔的转接头（six library）。因为 2 孔的插座（Python2 解释器）被淘汰以后，我们完全可以不使用转接头了。否则必须一直依赖转接头（six library）。
 
 [python-future](https://github.com/PythonCharmers/python-future) 库是用来弥补 Python2 和 Python3 兼容性的库，也就是一个转接头。
+
 [six](https://github.com/benjaminp/six) 也是一个解决 Python2 和 Python3 兼容性的库
 
-## 0x03 升级工具
+Python 内置 \_\_future\_\_ 
+
+这三者的区别：
++ \_\_future\_\_ Python 内置的兼容模块，提供基础的兼容特性（print 函数、Unicode 等）
+
+# 0x03 升级工具
 
 
 
-## 0x04 安装 Python 2 & 3 的环境
+# 0x04 安装 Python 2 & 3 的环境
 
 ---
 参考：
@@ -100,3 +108,7 @@ But now，时代不一样了，95% 的常用库都已经支持 Python3 了，所
 :pushpin: [Python2 vs Python3 | Syntax and performance Comparison](https://www.geeksforgeeks.org/python2-vs-python3-syntax-and-performance-comparison/)
 
 :pushpin: [Best Practices for Compatible Python 2 and 3 Code](https://pybit.es/python-porting.html)
+
+:pushpin: [The key differences between Python 2.7.x and Python 3.x with examples](http://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html)
+
+:pushpin: [Writing cross-compatible Python 2/3: Difference between \_\_future\_\_, six, and future.utils?](https://stackoverflow.com/questions/42110826/writing-cross-compatible-python-2-3-difference-between-future-six-and-fut)
