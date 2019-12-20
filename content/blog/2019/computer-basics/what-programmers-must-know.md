@@ -28,6 +28,7 @@ type = "post"
 + 位运算：右移一位相当于除以 2，左移一位相当于乘以 2
 + 有一些十进制数的小数无法转换成二进制数（0.1）
 + 内存和 CPU 都是集成电路（IC）
++ [8-bit string 就是 ASCII 编码的字符串](http://heather.cs.ucdavis.edu/~matloff/UnixAndC/CLanguage/Bits.html)
 
 # 0x01 网络
 
