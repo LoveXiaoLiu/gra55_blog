@@ -47,12 +47,52 @@ type = "_post"
 
 **re.M && re.MULTILINE**
 
++ 指定正则匹配时进行多行匹配：`^` 字符匹配字符串和**每一行开始（也就是换行符之后）**的位置（默认情况下，`^` 只匹配字符串开始的位置），`$` 字符匹配字符串和**每一行结尾（也就是换行符之前）**的位置（默认情况下，`$` 只匹配字符串结尾，如果结尾是换行符就匹配到换行符之前的位置）
 
+**re.S && re.DOTALL**
 
-****
-****
-****
-****
++ 这个标识使正则表达式中的 `.` 字符可以匹配任何字符（包括换行符，默认不匹配换行符）
+
+**re.U && re.UNICODE**
+
++ 使 \w、\W、\b、\B、\d、\D、\s、\S 依赖于 Unicode 字符集，可以为 re.IGNORECASE 开启 non-ASCII 的匹配
+
+**re.X && re.VERBOSE**
+
++ 这个标识允许你给正则表达式的 pattern 添加注释，注释使用 `#` 关键字，从最左边的 `#` 字符开始到行尾都是注释（前提是 `#` 不在 character class 中，或者前边没有转义反斜杠）。pattern 中的空白字符是被忽略的，除非在 character class 中，或者前边是一个非转义的反斜杠，或者在 `*?`、`(?:`、`(?P<...>` 中。
+
+```python
+# 这两个正则表达式等价
+a = re.compile(r"""\d +  # the integral part
+                   \.    # the decimal point
+                   \d *  # some fractional digits""", re.X)
+b = re.compile(r"\d+\.\d*")
+```
+
+**re.search(pattern, string, flags=0)**
+
++ 扫描字符串（string），寻找第一个正则表达式匹配到的位置，返回一个 MatchObject 对象。如果在字符串中没有位置匹配，就返回 None。注意，this is different from finding a zero-length match at some point in the string（没太明白这句话什么意思）
+
+```python
+a=re.search("a?bb", "bbcc")
+a.group()
+# 'bb'
+
+a=re.search("a?bb", "bccabbcbb")
+a.group()
+# 'abb'
+```
+
+**re.match(pattern, string, flags=0)**
+
++ 其他的内容与 re.search 相同，不同的是， re.match 必须从字符串的开头开始匹配（re.search 可以从中间才开始匹配正则表达式）。
++ 还有一点需要注意的是，即使在 re.MULTILINE 模式下，re.match 也只能在字符串的开头匹配（而不是每行的开头）
+
+**re.split(pattern, string, maxsplit=0, flags=0)**
+
++ 从 pattern 匹配到的位置来分割字符串。
++ 如果发现在 pattern 中有圆括号，会同时将所有的 groups 添加到列表中返回。
+
 ****
 ****
 ****
