@@ -7,7 +7,7 @@
         <h1>{{ .Title }}</h1>
         {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
         {{ range $paginator.Pages }}
-            {{ .Render "content-list" }}
+            {{ .Render "content-list-no-pic" }}
         {{ end }}
 
         {{ partial "pagination" . }}
