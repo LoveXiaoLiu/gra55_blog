@@ -7,7 +7,7 @@ tags = ["埃拉托斯特尼筛法", "2019"]
 date = "2019-12-22"
 featured = ""
 featuredalt = ""
-featuredpath = "date"
+featuredpath = ""
 linktitle = ""
 type = "post"
 +++

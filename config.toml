@@ -45,12 +45,12 @@ enableEmoji = true
   socialShare          = true
   # Sets specific share to appear on posts (default behavior is to appear)
   socialShareTwitter   = true
-  socialShareGoogleplus = true
+  socialShareGoogleplus = false
   socialShareFacebook  = true
   socialShareReddit    = true
-  socialShareLinkedin  = true
-  socialShareStumbleupon = true
-  socialSharePinterest = true
+  socialShareLinkedin  = false
+  socialShareStumbleupon = false
+  socialSharePinterest = false
   socialShareEmail     = true
 
   # Load custom CSS or JavaScript files. The variable is an array so that you
@@ -184,7 +184,7 @@ enableEmoji = true
   vimeo            = ""
   whatsapp         = "" # WhatsApp Number
     # WeChat and QQ need testing.
-    wechat         = ""
+    wechat         = "0x00"
     qq             = "" # User ID Number
   instagram        = ""
   tumblr           = ""

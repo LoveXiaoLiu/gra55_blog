@@ -7,7 +7,7 @@ tags = ["动态规划", "2019"]
 date = "2019-12-22"
 featured = ""
 featuredalt = ""
-featuredpath = "date"
+featuredpath = ""
 linktitle = ""
 type = "post"
 +++
