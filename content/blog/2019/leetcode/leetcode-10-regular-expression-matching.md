@@ -59,25 +59,10 @@ type = "_post"
 
 那就是对正则表达式问题进行重新定义，找到状态和状态转移方程。
 + 状态：`dp[i][j]` 表示 p[0:i] 是否能匹配 s[0:j]，状态值是 0 或者 1
-+ 转移方程：`dp[i][j]` 
++ 转移方程：
 
 ```python
-def longestPalindrome(s):
-    sLen = len(s)
-    if sLen == 0:
-        return s
-    dp = [[0] * sLen for _ in range(sLen)]
 
-    ret = s[0]
-    for j in range(1, sLen):
-        # 如果使用 range(sLen) 来循环，提交会超时，可能与题目限制 s 最大为 1000 有关，多一次循环就给超时了
-        for i in range(j):
-            if s[i] == s[j] and (j-i <= 2 or dp[i+1][j-1]):
-                dp[i][j] = 1
-
-                if j-i+1 > len(ret):
-                    ret = s[i:j+1]
-    return ret
 ```
 
 PS：动态规划的时间复杂度其实也不小（O(n²)），只是避免了很多重复的计算。
