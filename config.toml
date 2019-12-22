@@ -12,6 +12,15 @@ enableRobotsTXT = true
 canonifyURLs = true
 enableEmoji = true
 
+# and if you think your md file names or locations might change:
+[permalinks]
+    post = "/blog/:title/"
+
+[sitemap]
+  changefreq = "monthly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
 [params]
   # Sets the meta tag description
   description          = "HTML5 UP theme, Future Imperfect with some extra goodies, ported by Julio Pescador. Powered by Hugo"
