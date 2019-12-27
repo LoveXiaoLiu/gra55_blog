@@ -1,6 +1,6 @@
 +++
 title = "Python 标准库：socket"
-description = "socket 是比较底层的网络接口，所以必须掌握它的用法
+description = "socket 是比较底层的网络接口，所以必须掌握它的用法"
 author = "gra55"
 categories = ["Python"]
 tags = ["python", "2019", "socket"]
