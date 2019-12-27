@@ -56,7 +56,7 @@ Example：订单服务 A，需要调用支付服务 B 去支付，支付成功�
 
 ⑤、执行本地 commit 或者 rollbak
 
-```markdown
+```json
                       |
                       | request
                       v
@@ -108,7 +108,7 @@ Example：订单服务 A，需要调用支付服务 B 去支付，支付成功�
 
 + DoCommit 阶段类似于 2PC 的 Commit 阶段
 
-```markdown
+```json
                       |
                       | request
                       v
