@@ -45,19 +45,18 @@ Example：订单服务 A，需要调用支付服务 B 去支付，支付成功�
 
 Prepare 阶段
 
-① 事务询问：Coordinator 收到请求以后，向所有参与者发送事务预处理请求，即 Prepare。开始等待参与者响应
+①、事务询问：Coordinator 收到请求以后，向所有参与者发送事务预处理请求，即 Prepare。开始等待参与者响应
 
-② 执行本地事务：各参与者执行本地事务，但是不会真正提交，而是先向 Coordinator 报告自己的情况
+②、执行本地事务：各参与者执行本地事务，但是不会真正提交，而是先向 Coordinator 报告自己的情况
 
-③ 返回事务询问响应：参与者根据本地事务的情况返回 Yes or No
+③、返回事务询问响应：参与者根据本地事务的情况返回 Yes or No
 
 Commit 阶段
 
-④ Coordinator 统计参与者的返回值，返送 commit（参与者全回复 Yes） 或者 rollback（有参与者回复 No）
+④、Coordinator 统计参与者的返回值，返送 commit（参与者全回复 Yes） 或者 rollback（有参与者回复 No）
 
-⑤ 执行本地 commit 或者 rollbak
+⑤、执行本地 commit 或者 rollbak
 
-```py
                       +
                       |
                       |
@@ -88,7 +87,6 @@ Commit 阶段
     |     DB 1   |         |   DB 2     |
     |            |         |            |
     +------------+         +------------+
-```
 
 ### 缺点：
 + 性能差：2PC 是一个阻塞协议，即节点在等待休息的时候会阻塞
@@ -104,11 +102,11 @@ Commit 阶段
 
 CanCommit 阶段
 
-① 锁询问：请求到达 Coordinator 后， Coordinator 发起 CanCommit 请求，各参与节点根据情况判断是否可以获取数据库锁
+①、锁询问：请求到达 Coordinator 后， Coordinator 发起 CanCommit 请求，各参与节点根据情况判断是否可以获取数据库锁
 
-② 锁请求：各参与节点尝试获取本地数据库锁
+②、锁请求：各参与节点尝试获取本地数据库锁
 
-③ 锁返回：参与节点根据获取锁的情况返回 Yes or No
+③、锁返回：参与节点根据获取锁的情况返回 Yes or No
 
 PreCommit 阶段
 
