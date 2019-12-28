@@ -9,7 +9,7 @@ featured = ""
 featuredalt = ""
 featuredpath = ""
 linktitle = ""
-type = "_post"
+type = "post"
 +++
 
 
@@ -57,12 +57,46 @@ type = "_post"
 
 再回到这个问题上来。
 
-那就是对正则表达式问题进行重新定义，找到状态和状态转移方程。
-+ 状态：`dp[i][j]` 表示 p[0:i] 是否能匹配 s[0:j]，状态值是 0 或者 1
-+ 转移方程：
+那就是对正则表达式问题进行重新定义，找到状态和状态转移方程（***这个题的状态转移函数特别难找***）。
++ 状态：`dp[i][j]` 表示 `s[0:i]` 是否能匹配 `p[0:j]`，状态值是 `False` 或者 `True`
++ 转移方程：这个状态转移函数真的很难找，分为好几种情况，如下所示：
+  + 最简单的情况就是 `s[i] == p[j]` 或者 `p[j] == '.'`，那就表示当前字符是匹配的，那就看 `i-1` 和 `j-1` 是否匹配，即 `dp[i][j] == dp[i-1][j-1]`
+  + 复杂的是当 `p[j] == '*'`，需要分两种情况：
+    + 第一种情况是看 `p[j]` 的前一个字符（`p[j-1]`）是否等于 `.` 或者与 `s[j]` 相等。此时需要判断三种情况，有一个满足要求即可：
+      + `dp[i-1][j]`，这个表示 `s[:i-1]` 可以匹配 `p[:j]`，说明此时的的 `s[i]` 是匹配了多个值（即 `*` 匹配了多个值）
+      + `dp[i][j-1]`，表示 `s[:i]` 与 不带星号的 `p[:j-1]` 匹配上了，说明此时的 `*` 匹配了一个字母
+      + `dp[i][j-2]`，表示 `s[:i]` 与不带星号和星号前面的字符（`p[:j-2]`）匹配上了，说明此时的 `*` 匹配了 `0` 个字母
+    + 剩下的就是第二种情况，`p[j-1]` 不等于 `s[j]`，即表示此时的 `*` 表示的是 `0` 个字符，那么 `dp[i][j]` 需要参考 `dp[i][j-2]` 的匹配情况
 
 ```python
+class Solution:
+    def isMatch(self, s: str, p: str) -> bool:
+        sLen = len(s)
+        pLen = len(p)
 
+        if sLen == 0 and pLen == 0:
+            return True
+
+        dp = [[False] * (pLen + 1) for _ in range(sLen + 1)]
+        dp[0][0] = True
+
+        # only need to init empty `s` to all `p`, because dp init to False
+        for i in range(1, pLen + 1):
+            if p[i-1] == '*':
+                dp[0][i] = dp[0][i-2]
+
+        for i in range(1, sLen + 1):
+            for j in range(1, pLen + 1):
+                if s[i-1] == p[j-1] or p[j-1] == '.':
+                    dp[i][j] = dp[i-1][j-1]
+
+                if p[j-1] == '*':
+                    if s[i-1] == p[j-2] or p[j-2] == '.':
+                        dp[i][j] = dp[i-1][j] or dp[i][j-1] or dp[i][j-2]
+                    else:
+                        dp[i][j] = dp[i][j-2]
+
+        return dp[sLen][pLen]
 ```
 
 PS：动态规划的时间复杂度其实也不小（O(n²)），只是避免了很多重复的计算。
@@ -71,3 +105,5 @@ PS：动态规划的时间复杂度其实也不小（O(n²)），只是避免了
 参考：
 
 :pushpin: [什么是动态规划（Dynamic Programming）？](https://www.zhihu.com/question/23995189)
+
+:pushpin: [状态转移函数参考这里](https://leetcode-cn.com/problems/regular-expression-matching/solution/dong-tai-gui-hua-zen-yao-cong-0kai-shi-si-kao-da-b/)
