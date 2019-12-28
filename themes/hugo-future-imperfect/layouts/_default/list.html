@@ -6,7 +6,7 @@
     <div id="main">
         {{ $paginator := .Paginate .Data.Pages }}
         {{ range .Paginator.Pages }}
-            {{ .Render "content-list" }}
+            {{ .Render "content-list-has-footer" }}
         {{ end }}
 
         {{ partial "pagination" . }}
