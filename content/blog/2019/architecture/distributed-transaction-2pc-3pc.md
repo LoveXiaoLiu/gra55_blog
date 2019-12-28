@@ -150,7 +150,7 @@ Example：订单服务 A，需要调用支付服务 B 去支付，支付成功�
 ---
 参考：
 
-:pushpin: [分布式事务(1)---2PC和3PC原理](https://www.cnblogs.com/qdhxhz/p/11167025.html)
+:pushpin: [分布式事务---2PC和3PC原理](https://www.cnblogs.com/qdhxhz/p/11167025.html)
 
 :pushpin: [CAP Theorem](https://devopedia.org/cap-theorem)
 

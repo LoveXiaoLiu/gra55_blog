@@ -82,4 +82,4 @@ Note：
 ---
 参考：
 
-:pushpin: [分布式事务(2）---TCC原理](https://www.cnblogs.com/qdhxhz/p/11172585.html)
+:pushpin: [分布式事务---TCC原理](https://www.cnblogs.com/qdhxhz/p/11172585.html)
