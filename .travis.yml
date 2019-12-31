@@ -13,7 +13,7 @@ script:
     - echo 'Hugo build done!'
 after_script:
   - git clone "https://lovexiaoliu:${GithubToken}@${Github_REF}" github-pages
-  - rm github-pages/public -rf
+  - rm github-pages/* -rf
   - cp ./public/* github-pages -rf
   - cd github-pages
   - echo www.yangliu.date >> CNAME  # domain
