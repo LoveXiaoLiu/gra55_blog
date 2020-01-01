@@ -14,96 +14,87 @@ type = "_post"
 
 # 0x00 为什么需要 abc 模块
 
-abc 模块为调用者和具体实现类之间提供更高级别的语义化约定。
+abc 模块为调用者和具体实现类（而不是抽象类）之间提供更高级别的语义化约定。你使用类 A 之前，类 A 就给你保证它有 b 方法和 c 属性，不需要你在使用的时候通过 getattr 来判断，这个就是约定（contract）。
 
-类似于静态语言中的**接口**，子类必须实现抽象基类中的所有抽象方法和属性。
+上面说的那句话是什么意思其实我也不是很懂，我理解它其实就类似于静态语言中的**接口**，子类必须实现抽象基类中的所有抽象方法和属性。而 abc 模块就帮你完成了这些事情。
 
 详情请查看 [PEP 3119](https://www.python.org/dev/peps/pep-3119/#abcs-vs-alternatives)
 
-# 0x01 
+# 0x01 abc.ABCMeta 对象介绍
 
-**class：Queue(maxsize=0)**
+> ABCMeta 是一个元类（metaclass），用来定义 Abstract Base Classes (ABCs)
+> 
+> ABCMeta 可以被继承，可以作为一个 Mixin Class。
+> 
+> 可以注册不相关的具体类和 ABCs，作为**虚拟类**，他和他的子类会被认为是注册的 ABC 的子类（使用内置的 issubclass 函数来判断），但是注册的 ABC 不会出现在他们的 MRO（Method Resolution Order）中，注册 ABC 的方法也不能被调用。
+> 
+> 通过 ABCMeta 元类创建的类具有以下方法：
 
-+ FIFO（先进先出）队列。
+**register(subclass)**
 
-+ maxsize 用来设置队列的最大容量，一旦到达最大值，插入操作就会被阻塞住，直到队列内的内容被消费。
++ 注册一个子类，作为这个 ABC 的虚拟子类
 
-+ 如果 maxsize 小于等于 0，队列的容量是无限大。
+```python
+from abc import ABCMeta
 
-**class：LifoQueue(maxsize=0)**
+class MyABC:
+    __metaclass__ = ABCMeta
 
-+ LIFO（先进后出）队列，类似于栈。
+MyABC.register(tuple)
 
-+ 其他规则同 Queue。
+assert issubclass(tuple, MyABC)
+assert isinstance((), MyABC)
+```
 
-**class：PriorityQueue(maxsize=0)**
+**\_\_subclasshook\_\_(subclass)**
 
-+ 优先队列，内部使用 [heapq](https://docs.python.org/2/library/heapq.html#module-heapq) 实现。
++ 必须是一个类方法。
++ 检测 _subclass_ 是不是这个 ABC 的子类。
++ 这个方法被 \_\_subclasscheck\_\_ 调用，意思就是说可以通过这个类自定义 issubclass 的行为，不需要给每个需要注册虚拟子类的类调用 register() 方法（类似于 MyABC.register(tuple)）。
++ 这个方法必须返回 True，False 或者 NotImplemented。True 表示 _subclass_ 是 ABC 的子类，False 反之，如果是 NotImplemented，那就继续执行接下来的常规流程。
 
-+ 其他规则同 Queue。
+**给个例子解释下功能用法：**
 
-+ 优先返回优先级低的数据，典型的数据模式是一个元组：(priority_number, data)
++ ABC 类 MyIterable 定义了标准的可迭代对象方法（\_\_iter\_\_()）作为抽象方法。这里给出的实现仍然可以在子类调用。get_iterator() 方法也是 MyIterable 的一部分，但是它不是抽象方法，所以它没有强制要求被非抽象子类重写（overridden）。
++ 
 
-**exception：Empty**
+```python
+class Foo(object):
+    def __getitem__(self, index):
+        ...
+    def __len__(self):
+        ...
+    def get_iterator(self):
+        return iter(self)
 
-+ 在一个空队列调用非阻塞 get() 或者 get_nowait() 时会抛出此异常。
+class MyIterable:
+    __metaclass__ = ABCMeta
 
-**exception：Full**
+    @abstractmethod
+    def __iter__(self):
+        while False:
+            yield None
 
-+ 在一个容量达到最大值的队列调用非阻塞 put() 或者 put_nowait() 时会抛出此异常。
+    def get_iterator(self):
+        return self.__iter__()
 
-# 0x02 Queue 对象介绍
+    @classmethod
+    def __subclasshook__(cls, C):
+        if cls is MyIterable:
+            if any("__iter__" in B.__dict__ for B in C.__mro__):
+                return True
+        return NotImplemented
 
-> LifoQueue，PriorityQueue 都是继承自 Queue
+MyIterable.register(Foo)
+```
 
-**Queue.qsize()**
+# 0x01 abc 模块装饰器介绍
 
-+ 返回队列的近似大小，不能保证读写不会被阻塞。
+**abc.abstractmethod(function)**
 
-**Queue.empty()**
++ ss
 
-+ 判断队列是不是空，返回 True or False。不能保证读写不会被阻塞。
-
-**Queue.full()**
-
-+ 判断队列是不是满的，返回 True or False。不能保证读写不会被阻塞。
-
-**Queue.put(item[, block[, timeout]])**
-
-+ 将一个元素插入到队列中。如果 block=True 并且 timeout=None，如果队列满的话会阻塞，直到有空位置。
-
-+ 如果 timeout 是正数 x，它会阻塞 x 秒，这段时间内如果没有空位置，则会抛出一个 Full 异常。
-
-+ 如果 block=False，如果队列没有空位置，则会立即抛出一个 Full 异常。
-
-**Queue.put_nowait(item)**
-
-+ 等价于 put(item, False).
-
-**Queue.get([block[, timeout]])**
-
-+ 从队列移除并返回数据。如果 block=True 并且 timeout=None，如果队列为空的话会阻塞，直到有数据可用。
-
-+ 如果 timeout 是正数 x，它会阻塞 x 秒，这段时间内如果没有数据，则会抛出一个 Empty 异常。
-
-+ 如果 block=False，如果队列没有数据，则会立即抛出一个 Empty 异常。
-
-**Queue.get_nowait()**
-
-+ 等价于 get(False)
-
-**Queue.task_done()**
-
-+ 表示前一个排队的任务已经完成，常用于队列的消费线程。
-
-+ 调用 get() 获取一个任务以后，紧接着调用 task_done()，就是告诉队列：正在处理的任务已经完成。
-
-+ 如果阻塞在 join() 处，需要重新调用 task_done() 将所有任务处理完成。
-
-**Queue.join()**
-
-+ 调用以后就进行阻塞，直到所有的任务都被获取并处理完（task_done()）。
-+ 一个消费线程调用 task_done()，未完成任务的数量就会减一。减到零以后就会停止阻塞。
+**abc.abstractproperty([fget[, fset[, fdel[, doc]]]])**
 
 ---
 参考：
