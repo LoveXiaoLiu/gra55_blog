@@ -1,15 +1,15 @@
 +++
 title = "Python 标准库：abc"
-description = "在 Python 中 abc 模块用来创建抽象基类"
+description = "在 Python 中用 abc 模块来创建抽象基类"
 author = "gra55"
 categories = ["Python"]
-tags = ["python", "2019", "abc"]
-date = "2019-12-31"
-featured = "titanic.png"
-featuredalt = "1997年12月19日詹姆斯·卡梅隆指导的《泰坦尼克号》在美国上映"
+tags = ["python", "2020", "abc"]
+date = "2020-01-01"
+featured = "wangjing-soho.jpg"
+featuredalt = "元旦下的望京，拍摄于2020年1月1日早晨58同城总部楼顶"
 featuredpath = "date"
 linktitle = ""
-type = "_post"
+type = "post"
 +++
 
 # 0x00 为什么需要 abc 模块
@@ -33,6 +33,7 @@ abc 模块为调用者和具体实现类（而不是抽象类）之间提供更�
 **register(subclass)**
 
 + 注册一个子类，作为这个 ABC 的虚拟子类
++ 注意：虚拟子类与 C++ 中的虚拟子类概念不是一回事
 
 ```python
 from abc import ABCMeta
@@ -56,7 +57,8 @@ assert isinstance((), MyABC)
 **给个例子解释下功能用法：**
 
 + ABC 类 MyIterable 定义了标准的可迭代对象方法（\_\_iter\_\_()）作为抽象方法。这里给出的实现仍然可以在子类调用。get_iterator() 方法也是 MyIterable 的一部分，但是它不是抽象方法，所以它没有强制要求被非抽象子类重写（overridden）。
-+ 
++ 这里定义的 \_\_subclasshook\_\_ 方法表示，在传入的类型 C 的 MRO 中的所有类型的 \_\_dict\_\_ 中，如果有 \_\_iter\_\_ 方法，就返回 True（意思就是 C 是 MyIterable 的子类）
++ 将 Foo 类注册为 MyIterable 的虚拟子类，这样的话，即使 Foo 没有定义 \_\_iter\_\_ 方法，它也会被认为是 MyIterable 的子类
 
 ```python
 class Foo(object):
@@ -92,9 +94,35 @@ MyIterable.register(Foo)
 
 **abc.abstractmethod(function)**
 
-+ ss
++ 这个装饰器用来表示一个抽象方法
++ 使用这个装饰器时，必须要求它所属的类的元类是 ABCMeta 或其子类
++ 元类是 ABCMeta 或其子类的类，它的所有抽象方法和属性必须被重写（overridden），否则无法初始化
++ 子类内可以通过 super() 方法来调用抽象方法的实现
++ 动态给一个类添加抽象方法，或者修改一个方法为抽象方法都是不可以的
++ abc.abstractmethod 方法只能使用在正常继承方式下的子类，不能使用在虚拟子类（使用 register 方法注册的）中
++ 注意：不像 JAVA 或者其他语言的抽象方法，Python 的抽象方法可以有自己的实现。这个实现可以被子类重写的方法通过 super() 方法调用，这个一般在多继承中很有用
 
 **abc.abstractproperty([fget[, fset[, fdel[, doc]]]])**
+
++ 内置 property 类的子类，表示一个抽象属性
++ 使用这个装饰器时，必须要求它所属的类的元类是 ABCMeta 或其子类
++ 元类是 ABCMeta 或其子类的类，它的所有抽象方法和属性必须被重写（overridden），否则无法初始化
++ 子类内可以通过 super() 方法来调用抽象方法的实现
+
+```python
+# 只读属性
+class C:
+    __metaclass__ = ABCMeta
+    @abstractproperty
+    def my_abstract_property(self):
+        ...
+# 读写属性
+class C:
+    __metaclass__ = ABCMeta
+    def getx(self): ...
+    def setx(self, value): ...
+    x = abstractproperty(getx, setx)
+```
 
 ---
 参考：
