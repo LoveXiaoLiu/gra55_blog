@@ -28,3 +28,7 @@ env:
  global:
    # Github Pages
    - Github_REF: github.com/lovexiaoliu/lovexiaoliu.github.io.git
+
+branches:
+  only:
+    - master
