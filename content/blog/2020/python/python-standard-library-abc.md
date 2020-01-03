@@ -90,7 +90,7 @@ class MyIterable:
 MyIterable.register(Foo)
 ```
 
-# 0x01 abc 模块装饰器介绍
+# 0x02 abc 模块装饰器介绍
 
 **abc.abstractmethod(function)**
 
