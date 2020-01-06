@@ -2,8 +2,8 @@
 title = "Leetcode：#32 最长有效括号"
 description = "Leetcode：#32 Longest Valid Parentheses，难度：困难"
 author = "gra55"
-categories = ["Leetcode"]
-tags = ["动态规划", "2019"]
+categories = ["algorithm"]
+tags = ["leetcode", "动态规划", "2019"]
 date = "2019-12-23"
 featured = ""
 featuredalt = ""

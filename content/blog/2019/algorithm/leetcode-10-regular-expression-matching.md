@@ -2,8 +2,8 @@
 title = "Leetcode：#10 正则表达式匹配"
 description = "Leetcode：#10 Regular Expression Matching，难度：困难"
 author = "gra55"
-categories = ["Leetcode"]
-tags = ["动态规划", "2019"]
+categories = ["algorithm"]
+tags = ["leetcode", "动态规划", "2019"]
 date = "2019-12-22"
 featured = ""
 featuredalt = ""

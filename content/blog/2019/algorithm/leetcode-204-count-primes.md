@@ -2,8 +2,8 @@
 title = "Leetcode：#204 计数质数"
 description = "Leetcode：#204 Count Primes，难度：简单"
 author = "gra55"
-categories = ["Leetcode"]
-tags = ["埃拉托斯特尼筛法", "2019"]
+categories = ["algorithm"]
+tags = ["leetcode", "埃拉托斯特尼筛法", "2019"]
 date = "2019-12-22"
 featured = ""
 featuredalt = ""
