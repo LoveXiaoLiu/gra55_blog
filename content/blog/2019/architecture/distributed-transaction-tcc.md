@@ -43,7 +43,7 @@ TCC 是 Try、Confire、Cancel 的缩写。
 ⑤、各服务提交本地事务
 
 
-```flow
+```python
                          +----------------------+       1        +------------------------+
                          |                      +--------------->+                        |
                          |         APP          |                |  Coordination service  |
