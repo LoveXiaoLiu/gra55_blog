@@ -10,6 +10,7 @@ featuredalt = "张国荣在《霸王别姬》中的幕后照"
 featuredpath = "date"
 linktitle = ""
 type = "_post"
+
 +++
 
 > keywords:
@@ -41,7 +42,7 @@ Key point：
 
 早在 1990 年，HTTP 协议就被设计出来了，它是一个高度可扩展的协议，灵活性高，所以发展的很迅速。
 
-origin constraint 在 2010 年被放宽限制，通过指定 specific header。
+origin constraint 在 2010 年被放宽限制，通过指定 specific header 可以跨域访问。
 
 HTTP/1.0
 + 一个 HTTP 请求建立一个 TCP 连接
@@ -52,7 +53,7 @@ HTTP/1.1
 
 HTTP/2 
 + 将 HTTP 消息封装到 frame 中
-+ 传输方式更加优化，使用[多路复用技术（multiplexing）](https://stackoverflow.com/questions/36517829/what-does-multiplexing-mean-in-http-2)，即一条连接发发送多个 HTTP 请求。与 HTTP/1.1 主要不同就是可以在同一条 TCP 连接上发送/接收多个请求，而不需要等待上一个请求返回，1.1 是顺序请求的。
++ 传输方式更加优化，使用[多路复用技术（multiplexing）](https://stackoverflow.com/questions/36517829/what-does-multiplexing-mean-in-http-2)，即一条连接发送多个 HTTP 请求。与 HTTP/1.1 主要不同就是可以在同一条 TCP 连接上发送/接收多个请求，而不需要等待上一个请求返回，HTTP/1.1 是顺序请求的。
 
 #### 未来
 
