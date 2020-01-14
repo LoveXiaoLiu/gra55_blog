@@ -98,3 +98,5 @@ Talk only to your immediate friends and not to strangers.
 参考：
 
 :pushpin: [软件设计模式概述](http://c.biancheng.net/view/1317.html)
+
+:pushpin: [设计模式（45 种）](https://github.com/guanguans/notes/blob/master/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%8845%E7%A7%8D%EF%BC%89.md)
