@@ -36,3 +36,5 @@ type = "post"
 参考：
 
 :pushpin: [设计模式（45种）](https://github.com/guanguans/notes/blob/master/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%8845%E7%A7%8D%EF%BC%89.md)
+
+:pushpin: [Design patterns for humans 中文版](https://www.guanguans.cn/design-patterns-for-humans-cn/)
