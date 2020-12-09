@@ -11,7 +11,6 @@ categories = []
 linktitle = ""
 format = "Oscar"
 link = "#"
-
 +++
 
 ## 0x00 《Alike》
