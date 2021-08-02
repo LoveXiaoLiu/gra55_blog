@@ -14,7 +14,7 @@ type = "post"
 +++
 
 ## 0x00 简介
-context 是以链式的方式来保存数据：context A 派生出了 context B，context B 派生出了 context C ......
+Context 是以链式的方式来保存数据：context A 派生出了 context B，context B 派生出了 context C ......
 
 当一个 context 被 canceled，所有从它派生的 context 都会被取消：B 被取消，C 同样也会被废弃
 
