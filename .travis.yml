@@ -16,7 +16,7 @@ after_script:
   - rm github-pages/* -rf
   - cp ./public/* github-pages -rf
   - cd github-pages
-  - echo www.yangliu.date >> CNAME  # domain
+  - echo www.lndyzwdxh.cn >> CNAME  # domain
   - git add .
   - git commit -m "Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER"
   - git tag v0.0.$TRAVIS_BUILD_NUMBER -a -m "Auto Taged By TravisCI With Build $TRAVIS_BUILD_NUMBER"
