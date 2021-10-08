@@ -1,0 +1,39 @@
+<!--
+    params 2-4
+    Can be positional or named
+
+    example:
+        <iframe src="//player.bilibili.com/player.html?aid=36731342&cid=122608232&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+    position 0, name: aid
+
+    position 1, name: cid
+        
+-->
+{{ $numOfParams := len .Params }}
+{{ if and (ge $numOfParams 2) (le $numOfParams 2) }}
+    <!-- Check if the Parameter is positional or named
+         which can handle both. -->
+    {{ if .IsNamedParams }}
+        {{ $.Scratch.Set "aid" (.Get "aid") }}
+        {{ $.Scratch.Set "cid" (.Get "cid") }}
+    {{ else }}
+        {{ $.Scratch.Set "aid" (.Get 0) }}
+        {{ $.Scratch.Set "cid" (.Get 1) }}
+    {{ end }}
+
+    {{ $aid := $.Scratch.Get "aid" }}
+    {{ $cid  := $.Scratch.Get "cid" }}
+
+    {{ $.Scratch.Set "structType" "shortcode" }}
+
+    <iframe 
+        id="video-bilibili" 
+        src="//player.bilibili.com/player.html?aid={{ $aid }}&cid={{ $cid }}&page=1" 
+        scrolling="no" border="0" frameborder="no" framespacing="0" 
+        allowfullscreen="true" width=100%
+    > </iframe>
+    <script type="text/javascript">  
+        document.getElementById("video-bilibili").style.height=document.getElementById("video-bilibili").scrollWidth*0.5+"px";
+    </script>
+{{ end }}
