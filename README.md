@@ -1,4 +1,4 @@
-[![Build Status](https://www.travis-ci.org/LoveXiaoLiu/gra55_blog.svg?branch=master)](https://www.travis-ci.org/LoveXiaoLiu/gra55_blog)
+[![Build Status](https://app.travis-ci.com/LoveXiaoLiu/gra55_blog.svg?branch=master)](https://app.travis-ci.com/LoveXiaoLiu/gra55_blog)
 # gra55_blog
 Powered by [hugo](https://gohugo.io/commands/hugo/) and theme is [hugo-future-imperfect](https://github.com/jpescador/hugo-future-imperfect)
 
