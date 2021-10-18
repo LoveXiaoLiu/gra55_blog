@@ -35,7 +35,8 @@ enableEmoji = true
   readingTime           = true
   imageStretch          = ""
   removeBlur            = false
-  socialShare           = ["twitter", "facebook", "reddit", "linkedin", "pinterest", "email"]
+  socialShare           = []
+  # socialShare           = ["twitter", "facebook", "reddit", "linkedin", "pinterest", "email"]
   hideEmptyStats        = false
 
   [params.meta]
@@ -51,7 +52,7 @@ enableEmoji = true
     navbarTitle         = "Gra55's Blog"
     dynamicTitles       = true
     searchMenu          = true
-    shareMenu           = true
+    shareMenu           = false
     languageMenu        = true
 
   [params.intro]
