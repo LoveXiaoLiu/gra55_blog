@@ -64,7 +64,7 @@ enableEmoji = true
     alwaysOnHomepage      = false
 
     [params.intro.pic]
-      src                 = "img/main/logo.jpg"
+      src                 = "img/main/mamba.png"
       shape               = "circle"
       width               = ""
       alt                 = "Mamba spirit"
@@ -88,7 +88,7 @@ enableEmoji = true
     theme               = "github-light"
 
   [params.staticman]
-    enabled             = true
+    enabled             = false
     api                 = "https://blog-comment-gra55.herokuapp.com/"  # No Trailing Slash
     gitProvider         = "github"
     username            = "LoveXiaoLiu"
