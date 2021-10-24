@@ -19,3 +19,4 @@ tags = ["基础", "2021", "术语"]
 |AT&T syntax||AT&T 是 GNU 汇编语言使用的语法格式，与之相关的是 NASM 汇编语言使用的 Intel 风格的语法|
 |RAM|随机储存器（Random-Access Memory）|断电后数据丢失，也就是电脑上的内存条，程序时放在 RAM 中运行的|
 |ROM|只读储存器（Read-Only Memory）|断电数据不丢失，通俗来讲就是电脑上的硬盘|
+|IA-32|Intel Architecture, 32-bit 的缩写|有时候也叫做 i386|
