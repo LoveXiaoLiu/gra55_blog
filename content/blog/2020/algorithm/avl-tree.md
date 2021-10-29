@@ -2,7 +2,7 @@
 title = "AVL Tree 概述"
 description = "AVL 树是一种高度平衡的二叉搜索树"
 author = "gra55"
-categories = ["algorithm"]
+categories = ["Algorithm"]
 tags = ["avl-tree", "binary-tree", "tree", "2020"]
 date = "2020-01-10"
 +++

@@ -4,7 +4,7 @@ description = "Leetcode：#10 Regular Expression Matching，难度：困难"
 author = "gra55"
 date = "2019-12-22"
 tags = ["leetcode", "动态规划", "2019"]
-categories = ["algorithm"]
+categories = ["Algorithm"]
 +++
 
 

@@ -2,7 +2,7 @@
 title = "LRU 算法概述"
 description = "LRU 算法是常用的缓存算法：最近最少被使用的缓存项将被淘汰掉"
 author = "gra55"
-categories = ["algorithm"]
+categories = ["Algorithm"]
 tags = ["lru", "2020"]
 date = "2020-01-06"
 +++

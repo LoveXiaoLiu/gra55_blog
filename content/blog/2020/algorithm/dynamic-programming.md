@@ -2,7 +2,7 @@
 title = "基础算法：动态规划"
 description = "常用的基础算法之一，思想类似于分治法，不同点是子问题之间存在依赖，用来处理多阶段决策类问题"
 author = "gra55"
-categories = ["algorithm"]
+categories = ["Algorithm"]
 tags = ["基础算法", "动态规划", "2020"]
 date = "2020-01-14"
 +++

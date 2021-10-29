@@ -4,7 +4,7 @@ description = "Leetcode：#204 Count Primes，难度：简单"
 author = "gra55"
 date = "2019-12-22"
 tags = ["leetcode", "埃拉托斯特尼筛法", "2019"]
-categories = ["algorithm"]
+categories = ["Algorithm"]
 +++
 
 

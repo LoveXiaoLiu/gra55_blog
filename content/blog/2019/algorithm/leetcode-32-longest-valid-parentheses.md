@@ -4,7 +4,7 @@ description = "Leetcode：#32 Longest Valid Parentheses，难度：困难"
 author = "gra55"
 date = "2019-12-23"
 tags = ["leetcode", "动态规划", "2019"]
-categories = ["algorithm"]
+categories = ["Algorithm"]
 +++
 
 

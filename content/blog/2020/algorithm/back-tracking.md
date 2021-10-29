@@ -2,7 +2,7 @@
 title = "基础算法：回溯法"
 description = "常用的基础算法之一，被称为通用解题方法"
 author = "gra55"
-categories = ["algorithm"]
+categories = ["Algorithm"]
 tags = ["基础算法", "回溯法", "2020"]
 date = "2020-01-13"
 +++

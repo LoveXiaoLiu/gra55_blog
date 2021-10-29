@@ -4,7 +4,7 @@ description = "Leetcode：#5 Longest Palindromic Substring，难度：中等"
 author = "gra55"
 date = "2019-12-22"
 tags = ["leetcode", "动态规划", "2019"]
-categories = ["algorithm"]
+categories = ["Algorithm"]
 +++
 
 
