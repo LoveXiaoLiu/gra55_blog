@@ -150,47 +150,47 @@ enableEmoji = true
     LanguageName        = "English"
     weight              = 1
 
-  [Languages.zh-CN]
-    LanguageCode        = "zh-CN"
-    LanguageName        = "中文"
-    # title               = "Hugo Future Imperfect Slim en français"
-    # description         = "Un thème par HTML5 UP, porté par Julio Pescador. Simplifié et amélioré par Patrick Collins. Multilingue par StatnMap. Propulsé par Hugo."
-    weight              = 2
+  #[Languages.zh-CN]
+  #  LanguageCode        = "zh-CN"
+  #  LanguageName        = "中文"
+  #  # title               = "Hugo Future Imperfect Slim en français"
+  #  # description         = "Un thème par HTML5 UP, porté par Julio Pescador. Simplifié et amélioré par Patrick Collins. Multilingue par StatnMap. Propulsé par Hugo."
+  #  weight              = 2
 
-    [[Languages.zh-CN.menu.main]]
-      name              = "主页"
-      identifier        = "home"
-      url               = "/"
-      pre               = "<i class='fa fa-home'></i>"
-      weight            = 1
+  #  [[Languages.zh-CN.menu.main]]
+  #    name              = "主页"
+  #    identifier        = "home"
+  #    url               = "/"
+  #    pre               = "<i class='fa fa-home'></i>"
+  #    weight            = 1
 
-    [[Languages.zh-CN.menu.main]]
-      name              = "文章"
-      identifier        = "blog"
-      url               = "/blog/"
-      pre               = "<i class='fa fa-coffee'></i>"
-      weight            = 2
+  #  [[Languages.zh-CN.menu.main]]
+  #    name              = "文章"
+  #    identifier        = "blog"
+  #    url               = "/blog/"
+  #   pre               = "<i class='fa fa-coffee'></i>"
+  #   weight            = 2
 
-    [[Languages.zh-CN.menu.main]]
-      name              = "惊喜"
-      identifier        = "awesome"
-      url               = "/awesome/"
-      pre               = "<i class='fab fa-angellist'></i>"
-      weight            = 3
+  # [[Languages.zh-CN.menu.main]]
+  #   name              = "惊喜"
+  #   identifier        = "awesome"
+  #   url               = "/awesome/"
+  #   pre               = "<i class='fab fa-angellist'></i>"
+  #   weight            = 3
 
-    [[Languages.zh-CN.menu.main]]
-      name              = "分类"
-      identifier        = "categories"
-      url               = "/categories/"
-      pre               = "<i class='fas fa-folder-open'></i>"
-      weight            = 4
+  # [[Languages.zh-CN.menu.main]]
+  #   name              = "分类"
+  #   identifier        = "categories"
+  #   url               = "/categories/"
+  #   pre               = "<i class='fas fa-folder-open'></i>"
+  #   weight            = 4
 
-    [[Languages.zh-CN.menu.main]]
-      name              = "关于"
-      identifier        = "about"
-      url               = "/about/"
-      pre               = "<i class='fa fa-heartbeat'></i>"
-      weight            = 5
+  # [[Languages.zh-CN.menu.main]]
+  #   name              = "关于"
+  #   identifier        = "about"
+  #   url               = "/about/"
+  #   pre               = "<i class='fa fa-heartbeat'></i>"
+  #   weight            = 5
 
     # [[Languages.zh-CN.menu.main]]
     #   name              = "联系我"
