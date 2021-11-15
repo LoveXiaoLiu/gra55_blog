@@ -11,6 +11,8 @@ tags = ["go", "2021"]
 
 ## 0x00 概述
 
+![memstate](/img/2021/11/go-memstate.png)
+
 Alloc uint64
 + 堆中分配的对象所占用的字节数，与 HeapAlloc 是一样的
 
